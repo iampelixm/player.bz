@@ -82,6 +82,4 @@ PLAYERBZ_kodilogfile="/home/xbian/.kodi/temp/kodi.log"
 
 PLAYERBZ_playlist_sync_in_progress=0
 
-PLAYERBZ_shuffle_playlist=1
-
 monitor = xbmc.Monitor()

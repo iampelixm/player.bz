@@ -35,7 +35,6 @@ from threading import Timer
 import socket
 import fcntl
 import struct
-import random
 
 #import settings
 from settings import *
@@ -76,18 +75,7 @@ def encode_multipart_formdata(fields, files):
 def get_content_type(filename):
     return mimetypes.guess_type(filename)[0] or 'application/octet-stream'     
     
-########################################################################################## 
-
-def applySetting(name, value):
-    global PLAYERBZ_shuffle_playlist
-    
-    if name == 'shuffle_playlist':
-        if value:
-            PLAYERBZ_shuffle_playlist = 1
-        else:
-            PLAYERBZ_shuffle_playlist = 0
-
-########################################################################################## 
+##########################################################################################    
 
 def send_file_to_server(path, file_type):
     
@@ -142,7 +130,6 @@ def send_log_files():
 def PLAYERBZ_load_playlist():
     global PLAYERBZ_playlist_content
     global PLAYERBZ_playlist_sync_in_progress
-    global PLAYERBZ_shuffle_playlist
     log('DEBUG: LOADING PLAYLIST')
     PLAYERBZ_sync_needed=0
     if os.path.exists(PLAYERBZ_playlist_path):
@@ -166,17 +153,10 @@ def PLAYERBZ_load_playlist():
             PLAYERBZ_content_path=PLAYERBZ_image_storage_path              
         
         if synclist.tag == "SyncList":
-            for obj in synclist.iter("setting"):
-                if monitor.abortRequested():
-                return 1 
-                sname=obj.find('name').text
-                savalue=obj.find('value').text
-                
             filesarr=os.listdir(PLAYERBZ_content_path)
             if len(filesarr) == 0:
                 log('DEBUG: THERE IS NO ONE NORMAL CONTENT FILE')
                 PLAYERBZ_sync_needed=1
-                
             for file in os.listdir(PLAYERBZ_content_path):
                 file_listed=0
                 #log('REVERSE TEST FOR %s'%file)
@@ -204,11 +184,7 @@ def PLAYERBZ_load_playlist():
                     log("INFO: PLAYLIST ADDED: %s%s"%(PLAYERBZ_content_path, file))
                     PLAYERBZ_playlist_content.append(PLAYERBZ_content_path + file)
             
-            log('DEBUG: PLAYLiST LOADING DONE')
-            
-            if (PLAYERBZ_shuffle_playlist):
-                random.shuffle(PLAYERBZ_playlist_content)
-                
+            log('DEBUG: PLAYLiST LOADING DONE')        
             if (PLAYERBZ_sync_needed == 0):
                 log('DEBUG: PLAYLIST SYNC NOT NEEDED')
                 return 1 
@@ -255,8 +231,6 @@ def PLAYERBZ_load_playlist():
                     else:
                         log('ERROR: FILE WAS DOWNLOADED FROM %s BUT DOES NOT EXISTS AT %s%s'%(url,PLAYERBZ_content_path,filename))
                 log('INFO: PLAYLIST SYNC DONE!')
-                if (PLAYERBZ_shuffle_playlist):
-                    random.shuffle(PLAYERBZ_playlist_content)                
                 PLAYERBZ_playlist_sync_in_progress = 0
             else:
                 log('WARN: ANOTHER SYNC IN PROGRESS. OR HERE IS A BUG')
