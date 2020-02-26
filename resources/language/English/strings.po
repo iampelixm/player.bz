@@ -1,0 +1,39 @@
+# Kodi Media Center language file
+msgid ""
+msgstr ""
+
+msgctxt "#70000"
+msgid "Configuration"
+msgstr ""
+
+msgctxt "#70001"
+msgid "Play video"
+msgstr ""
+
+msgctxt "#70002"
+msgid "Play audio"
+msgstr ""
+
+msgctxt "#70003"
+msgid "Login"
+msgstr ""
+
+msgctxt "#70004"
+msgid "Password"
+msgstr ""
+
+msgctxt "#70005"
+msgid "Object ID"
+msgstr ""
+
+msgctxt "#70006"
+msgid "Playlist update interval"
+msgstr ""
+
+msgctxt "#70007"
+msgid "Shuffle playlist(Randomize)"
+msgstr ""
+
+msgctxt "#70008"
+msgid "Unload GUI"
+msgstr ""

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon version="0.1.94" id="service.player.bz.xbian" name="Player.bz.xbian"  provider-name="Alexander Semenov aka PelixM">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="repository.xlit" version="1.0.0"/>
+  </requires>
+  <extension point="xbmc.service" library="default.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>
+		Сервис для трансляции видео/аудио контента с рекламными вставками по плейлисту из сервиса Player.bz
+	</summary>
+    <description>
+		Сервис для трансляции видео/аудио контента с рекламными вставками по плейлисту из сервиса Player.bz
+    </description>
+	
+    <disclaimer>
+		DO NOT USE IF YOU ARE NOT SHURE 
+    </disclaimer>
+    <platform>
+		all
+	</platform>
+    <news>
+    Сервис для трансляции видео/аудио контента с рекламными вставками по плейлисту из сервиса Player.bz
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+    </assets>
+  </extension> 
+</addon>
