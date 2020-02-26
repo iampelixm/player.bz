@@ -564,6 +564,12 @@ class mPlayer(xbmc.Player):
     def onPlayBackStarted(self):
         global PLAYERBZ_before_insert_time
         global PLAYERBZ_schedule_set
+        if not os.path.exists(PLAYERBZ_playlist_content[PLAYERBZ_before_insert_position]):
+            log('ERROR: TRYING TO PLAY NOT EXISTING FILE. WILL STOP AND RESYNC.')
+            playert(stop)
+            PLAYERBZ_build_play_list()
+            PLAYERBZ_play_main_content()
+            
         log('DEBUG: PLAYBACK S T A R T E D; MARKETING STATUS %s | LAST TIME %s |  MARKETING POSITION/TOTAL %s/%s PLAYLIST POSITION/TOTAL %s/%s, file: %s '%(PLAYERBZ_marketing_time, PLAYERBZ_before_insert_time, PLAYERBZ_marketing_position, len(PLAYERBZ_marketing_content), PLAYERBZ_before_insert_position, len(PLAYERBZ_playlist_content), PLAYERBZ_playlist_content[PLAYERBZ_before_insert_position]))
         
         #xbmc.executebuiltin('Dialog.Close(all,true)')
