@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon version="0.1.95" id="service.player.bz.xbian" name="Player.bz.xbian"  provider-name="Alexander Semenov aka PelixM">
+<addon version="0.1.96" id="service.player.bz.xbian" name="Player.bz.xbian"  provider-name="Alexander Semenov aka PelixM">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="repository.xlit" version="1.0.0"/>
